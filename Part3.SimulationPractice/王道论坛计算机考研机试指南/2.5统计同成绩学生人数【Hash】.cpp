@@ -1,3 +1,4 @@
+/* 本题过于简单，没有充分体现 Hash 的概念 */
 #include <iostream>
 #define MAXN 110
 using namespace std;
