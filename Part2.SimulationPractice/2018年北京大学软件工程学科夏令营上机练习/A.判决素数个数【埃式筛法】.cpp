@@ -15,26 +15,27 @@
 
 #include <cmath>
 #include <iostream>
+
 #define MAXY 10010
 using namespace std;
 bool comp[MAXY]; // 合数为 true
 int main() {
-  int x, y;
-  int res = 0;
-  cin >> x >> y;
-  // 埃式筛法
-  int m = sqrt(y + 0.5);
-  for (int i = 2; i < m; i++) {
-    if (!comp[i]) { // 质数
-      for (int j = i * i; j <= y; j += i)
-        comp[j] = true;
+    int x, y;
+    int res = 0;
+    cin >> x >> y;
+    // 埃式筛法
+    int m = sqrt(y + 0.5);
+    for (int i = 2; i < m; i++) {
+        if (!comp[i]) { // 质数
+            for (int j = i * i; j <= y; j += i)
+                comp[j] = true;
+        }
     }
-  }
-  // 统计素数个数
-  for (int i = x; i <= y; i++) {
-    if (i != 1 && !comp[i]) // 注意 1 不是质数
-      res++;
-  }
-  cout << res;
-  return 0;
+    // 统计素数个数
+    for (int i = x; i <= y; i++) {
+        if (i != 1 && !comp[i]) // 注意 1 不是质数
+            res++;
+    }
+    cout << res;
+    return 0;
 }

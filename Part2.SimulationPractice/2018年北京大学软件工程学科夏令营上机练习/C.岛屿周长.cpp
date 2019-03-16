@@ -20,40 +20,43 @@ cs10116 final exam
 */
 
 #include <iostream>
+
 using namespace std;
 #define MAXN 110
 int n, m;
 int res; // 输出的周长
 int map[MAXN][MAXN];
-void check(int i, int j) {
-  if (map[i][j] == 0)
-    return;
-  if (i == 0 || i == n - 1)
-    res++;
-  if (j == 0 || j == m - 1)
-    res++;
-  if (i < n - 1 && map[i + 1][j] == 0)
-    res++;
-  if (j < m - 1 && map[i][j + 1] == 0)
-    res++;
-  if (i > 0 && map[i - 1][j] == 0)
-    res++;
-  if (j > 0 && map[i][j - 1] == 0)
-    res++;
-}
-int main() {
-  cin >> n >> m;
-  for (int i = 0; i < n; i++) {
-    for (int j = 0; j < m; j++) {
-      cin >> map[i][j];
-    }
-  }
 
-  for (int i = 0; i < n; i++) {
-    for (int j = 0; j < m; j++) {
-      check(i, j);
+void check(int i, int j) {
+    if (map[i][j] == 0)
+        return;
+    if (i == 0 || i == n - 1)
+        res++;
+    if (j == 0 || j == m - 1)
+        res++;
+    if (i < n - 1 && map[i + 1][j] == 0)
+        res++;
+    if (j < m - 1 && map[i][j + 1] == 0)
+        res++;
+    if (i > 0 && map[i - 1][j] == 0)
+        res++;
+    if (j > 0 && map[i][j - 1] == 0)
+        res++;
+}
+
+int main() {
+    cin >> n >> m;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            cin >> map[i][j];
+        }
     }
-  }
-  cout << res;
-  return 0;
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            check(i, j);
+        }
+    }
+    cout << res;
+    return 0;
 }

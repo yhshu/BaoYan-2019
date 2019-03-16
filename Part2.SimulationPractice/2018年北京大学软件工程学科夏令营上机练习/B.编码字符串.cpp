@@ -16,26 +16,29 @@ aAABBbBCCCaaaaa
 来源
 cs10116 final exam
 */
+
 #include <cstring>
 #include <iostream>
+
 using namespace std;
+
 int main() {
-  string str;
-  cin >> str;
-  for (int i = 0; i < str.size(); i++) {
-    if ('A' <= str[i] && str[i] <= 'Z') {
-      str[i] = str[i] + 'a' - 'A';
+    string str;
+    cin >> str;
+    for (int i = 0; i < str.size(); i++) {
+        if ('A' <= str[i] && str[i] <= 'Z') {
+            str[i] = str[i] + 'a' - 'A';
+        }
     }
-  }
-  int count = 1;
-  for (int i = 1; i < str.size(); i++) {
-    if (str[i] == str[i - 1]) {
-      count++;
-    } else {
-      cout << "(" << str[i - 1] << "," << count << ")";
-      count = 1;
+    int count = 1;
+    for (int i = 1; i < str.size(); i++) {
+        if (str[i] == str[i - 1]) {
+            count++;
+        } else {
+            cout << "(" << str[i - 1] << "," << count << ")";
+            count = 1;
+        }
     }
-  }
-  cout << "(" << str[str.size() - 1] << "," << count << ")";
-  return 0;
+    cout << "(" << str[str.size() - 1] << "," << count << ")";
+    return 0;
 }
