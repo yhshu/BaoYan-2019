@@ -13,3 +13,5 @@ add_executable(2018pku.se.g Part2.SimulationPractice/2018年北京大学软件�
 
 add_executable(2018pku.cs.a Part2.SimulationPractice/2018计算机学科夏令营上机考试/A.计算两个日期之间的天数.cpp)
 add_executable(2018pku.cs.b Part2.SimulationPractice/2018计算机学科夏令营上机考试/B.回文子串.cpp)
+add_executable(2018pku.cs.f.1 "Part2.SimulationPractice/2018计算机学科夏令营上机考试/F.Tram [Dijkstra].cpp")
+add_executable(2018pku.cs.f.2 "Part2.SimulationPractice/2018计算机学科夏令营上机考试/F.Tram [Floyd].cpp")
