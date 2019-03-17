@@ -16,26 +16,35 @@
 #include <cmath>
 #include <iostream>
 
-#define MAXY 10010
 using namespace std;
-bool comp[MAXY]; // 合数为 true
+
+const int maxn = 1e5 + 10;
+bool comp[maxn]; // 合数为 true
+
 int main() {
     int x, y;
-    int res = 0;
+    int ans = 0;
     cin >> x >> y;
+
+    // 注意，此题没有说明 x 和 y 的大小关系
+    if (x > y) {
+        swap(x, y);
+    }
+
     // 埃式筛法
     int m = sqrt(y + 0.5);
-    for (int i = 2; i < m; i++) {
+    for (int i = 2; i <= m; i++) {
         if (!comp[i]) { // 质数
             for (int j = i * i; j <= y; j += i)
                 comp[j] = true;
         }
     }
+
     // 统计素数个数
     for (int i = x; i <= y; i++) {
         if (i != 1 && !comp[i]) // 注意 1 不是质数
-            res++;
+            ans++;
     }
-    cout << res;
+    cout << ans << endl;
     return 0;
 }
