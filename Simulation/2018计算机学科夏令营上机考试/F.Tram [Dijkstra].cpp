@@ -3,6 +3,7 @@
 //
 
 /*
+ * 百练OJ 1847
  * F:Tram
 查看 提交 统计 提问
 总时间限制: 1000ms 内存限制: 65536kB
@@ -51,30 +52,37 @@ const int maxn = 100 + 10;
 int dis[maxn]; // dis[i]是起点到点i的距离
 int n, a, b; // 顶点数量，起点，终点
 vector<Edge> nei[maxn]; // 邻接表
-queue<int> que; // 堆优化
+
+struct cmp {
+    bool operator()(int a, int b) {
+        return dis[a] > dis[b];
+    }
+};
+
+priority_queue<int, vector<int>, cmp> que; // 堆优化
 bool vis[maxn];
 
 void init() {
-    for (int i = 1; i <= maxn; i++) {
+    for (int i = 0; i <= maxn; i++) {
         dis[i] = INF;
     }
 }
 
 void Dijkstra() {
+    dis[a] = 0;
+    que.push(a);
+
     while (!que.empty()) {
-        int cur = que.front();
+        int cur = que.top();
         que.pop();
         vis[cur] = true;
 
         for (int i = 0; i < nei[cur].size(); i++) {
-            int nei_i = nei[cur][i].to;
-            int d = nei[cur][i].dis;
-            if (vis[nei_i])
-                continue;
-            if ((dis[cur] + d) < dis[nei_i]) {
-                dis[nei_i] = d + dis[cur];
-                que.push(nei_i);
-            }
+            Edge e = nei[cur][i];
+            if (vis[e.to]) continue;
+            if (e.dis + dis[cur] < dis[e.to])
+                dis[e.to] = dis[cur] + e.dis;
+            que.push(e.to);
         }
     }
 }
@@ -90,16 +98,13 @@ int main() {
         for (int j = 1; j <= m; j++) {
             int v, d;
             cin >> v;
-            if (j == 1)
-                d = 0;
+            if (j == 1) d = 0;
             else d = 1;
             Edge edge(d, v);
             nei[u].push_back(edge);
         }
     }
 
-    que.push(a);
-    dis[a] = 0;
     Dijkstra();
     int res = dis[b];
     if (res == INF)
