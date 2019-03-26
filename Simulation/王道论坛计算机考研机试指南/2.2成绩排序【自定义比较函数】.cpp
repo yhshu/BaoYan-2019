@@ -31,6 +31,7 @@ bool cmp(Student a, Student b) {
     return t < 0;
   return a.age < b.age;
 }
+
 int main() {
   while (cin >> n) {
     for (int i = 0; i < n; i++) {
