@@ -1,62 +1,76 @@
+/*
+é¢˜ç›®æè¿° :
+æ±‚æ­£æ•´æ•° N(N>1) çš„è´¨å› æ•°çš„ä¸ªæ•°ã€‚
+ç›¸åŒçš„è´¨å› æ•°éœ€è¦é‡å¤è®¡ç®—ã€‚å¦‚ 120=2*2*2*3*5 ,å…±æœ‰ 5 ä¸ªè´¨å› æ•°ã€‚
+è¾“å…¥:
+å¯èƒ½æœ‰å¤šç»„æµ‹è¯•æ•°æ®,æ¯ç»„æµ‹è¯•æ•°æ®çš„è¾“å…¥æ˜¯ä¸€ä¸ªæ­£æ•´æ•° N , (1<N<10^9) ã€‚
+è¾“å‡º :
+å¯¹äºæ¯ç»„æ•°æ®,è¾“å‡º N çš„è´¨å› æ•°çš„ä¸ªæ•°ã€‚
+
+æ ·ä¾‹è¾“å…¥:
+120
+æ ·ä¾‹è¾“å‡º:
+5
+æç¤º:
+æ³¨æ„: 1 ä¸æ˜¯ N çš„è´¨å› æ•°;è‹¥ N ä¸ºè´¨æ•°, N æ˜¯ N çš„è´¨å› æ•°ã€‚
+æ¥æº:
+2007 å¹´æ¸…åå¤§å­¦è®¡ç®—æœºç ”ç©¶ç”Ÿæœºè¯•çœŸé¢˜
+ */
+
 #include <iostream>
-#define MAXN 100010
+#include <cmath>
+
+#define maxn 100010
 using namespace std;
 
-bool mark[MAXN]; // ºÏÊıÎª true 
-int prime[MAXN];
+bool mark[maxn]; // åˆæ•°ä¸º true
+int prime[maxn];
 int primeSize;
 
-void init() // ËØÊıÉ¸·¨£ºÉ¸Ñ¡³ö2µ½100000ÄÚµÄËùÓĞËØÊı 
+void init() // ç´ æ•°ç­›æ³•ï¼šç­›é€‰å‡º2åˆ°100000å†…çš„æ‰€æœ‰ç´ æ•° 
 {
-	primeSize = 0;
-	for(int i = 2; i <= 100000; i++)
-	{
-		if(mark[i] == true) continue;
-		prime[primeSize++] = i;
-		if(i >= 1000) continue;
-		for(int j = i * i; j <= 100000; j += i)
-		{
-			mark[j] = true;
-		} 
-	}
+    primeSize = 0;
+    int m = (int) sqrt(maxn + 0.5);
+    for (int i = 2; i <= maxn; i++) {
+        if (mark[i]) continue;
+        prime[primeSize++] = i;
+        if (i >= m) continue;
+        for (int j = i * i; j <= maxn; j += i) {
+            mark[j] = true;
+        }
+    }
 }
 
-int main() 
-{
-	init();
-	int n;
-	while(scanf("%d", &n) != EOF)
-	{
-		int ansPrime[30] = {}; // °´Ë³Ğò±£´æ·Ö½â³öµÄÖÊÒòÊı
-		int ansSize = 0; // ·Ö½â³öµÄÖÊÒòÊı¸öÊı
-		int ansNum[30] = {}; // ±£´æ·Ö½â³öµÄÖÊÒòÊı¶ÔÓ¦µÄÃİÖ¸Êı
-		for(int i = 0; i < primeSize; i++) // ÒÀ´Î²âÊÔËØÊı 
-		{
-			if(n % prime[i] == 0) // Èô¸ÃËØÊıÄÜÕû³ı±»·Ö½âÊı
-			{
-				ansPrime[ansSize] = prime[i];
-				while(n % prime[i] == 0)
-				{
-					ansNum[ansSize]++;
-					n /= prime[i];
-				}
-				ansSize++;
-				if(n == 1) // ±»·Ö½âÎª1 
-					break;
-			} 
-		} 
-		if(n != 1) // ²âÊÔÍê´Ó2µ½100000µÄËùÓĞÖÊÒòÊı£¬ÈÔÎ´·Ö½âµ½1£¬ÔòÊ£ÓàµÄÒòÊıÊÇn£¬ËüÊÇ´óÓÚ100000µÄÖÊÒòÊı 
-		{
-			ansPrime[ansSize] = n;
-			ansNum[ansSize++] = 1;
-		} 
-		
-		int ans = 0;
-		for(int i = 0; i < ansSize; i++)
-		{
-			ans += ansNum[i];
-		}
-		cout << ans << endl;
-	} 
-	return 0;
+int main() {
+    init();
+    int n;
+    while (cin >> n) {
+        int ansPrime[30] = {}; // æŒ‰é¡ºåºä¿å­˜åˆ†è§£å‡ºçš„è´¨å› æ•°
+        int ansSize = 0; // åˆ†è§£å‡ºçš„è´¨å› æ•°ä¸ªæ•°
+        int ansNum[30] = {}; // ä¿å­˜åˆ†è§£å‡ºçš„è´¨å› æ•°å¯¹åº”çš„å¹‚æŒ‡æ•°
+        for (int i = 0; i < primeSize; i++) // ä¾æ¬¡æµ‹è¯•ç´ æ•°
+        {
+            if (n % prime[i] == 0) {// è‹¥è¯¥ç´ æ•°èƒ½æ•´é™¤è¢«åˆ†è§£æ•°
+                ansPrime[ansSize] = prime[i];
+                while (n % prime[i] == 0) {
+                    ansNum[ansSize]++;
+                    n /= prime[i];
+                }
+                ansSize++;
+                if (n == 1) // è¢«åˆ†è§£ä¸º1
+                    break;
+            }
+        }
+        if (n != 1) { // æµ‹è¯•å®Œä»2åˆ°100000çš„æ‰€æœ‰è´¨å› æ•°ï¼Œä»æœªåˆ†è§£åˆ°1ï¼Œåˆ™å‰©ä½™çš„å› æ•°æ˜¯nï¼Œå®ƒæ˜¯å¤§äº100000çš„è´¨å› æ•°
+            ansPrime[ansSize] = n;
+            ansNum[ansSize++] = 1;
+        }
+
+        int ans = 0;
+        for (int i = 0; i < ansSize; i++) {
+            ans += ansNum[i];
+        }
+        cout << ans << endl;
+    }
+    return 0;
 }

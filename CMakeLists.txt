@@ -3,6 +3,13 @@ project(BaoYan)
 
 set(CMAKE_CXX_STANDARD 98)
 
+add_executable(wangdao3.1 Simulation/王道论坛计算机考研机试指南/3.1括号匹配问题【栈的应用】.cpp)
+add_executable(wangdao3.2 Simulation/王道论坛计算机考研机试指南/3.2简单计算器.cpp)
+add_executable(wangdao3.5 Simulation/王道论坛计算机考研机试指南/3.5二叉排序树.cpp)
+add_executable(wangdao4.2 Simulation/王道论坛计算机考研机试指南/4.2又一版A+B【进制转换】.cpp)
+add_executable(wangdao4.5.3 Simulation/王道论坛计算机考研机试指南/4.5最小公倍数.cpp)
+add_executable(wangdao4.8 Simulation/王道论坛计算机考研机试指南/4.8质因数的个数.cpp)
+
 add_executable(quicksort_one_way Algorithm/Sort/quicksort_one_way.cpp)
 add_executable(quicksort_two_ways Algorithm/Sort/quicksort_two_ways.cpp)
 add_executable(POJ2388_one_way Algorithm/Sort/POJ2388_one_way.cpp)

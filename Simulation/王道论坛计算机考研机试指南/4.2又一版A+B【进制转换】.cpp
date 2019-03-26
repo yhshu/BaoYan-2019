@@ -1,23 +1,23 @@
 #include <cstdio>
+
 int main() {
-  long long a, b; // Ê¹ÓÃ long long È·±£²»»áÒç³ö
-  int m;
-  while (scanf("%d", &m) != EOF) {
-    if (m == 0)
-      break;
-    scanf("%lld%lld", &a, &b);
-    a = a + b; // ÏÂÃæ½« a ×ª»»Îª m ½øÖÆ
-    int ans[50],
-        size =
-            0; // ans ÓÃÓÚ±£´æÒÀ´Î×ª»»µÃµ½µÄ¸÷¸öÊıÎ»Êı×ÖµÄÖµ£¬ size ±íÊ¾Æä¸öÊı
-    do {       // ÒÀ´ÎÇóµÃ¸÷¸öÊıÎ»ÉÏµÄÊı×ÖÖµ
-      ans[size++] = a % m;
-      a /= m;
-    } while (a != 0); // µ± a ²»Îª 0 Ê±ÖØ¸´
-    for (int i = size - 1; i >= 0; i--) {
-      printf("%d", ans[i]);
-    }             // Êä³ö£¬×¢ÒâË³ĞòÎª´Ó¸ßÎ»µ½µÍÎ»
-    printf("\n"); // Êä³ö»»ĞĞ
-  }
-  return 0;
+    long long a, b; // ä½¿ç”¨ long long ç¡®ä¿ä¸ä¼šæº¢å‡º
+    int m;
+    while (scanf("%d", &m) != EOF) {
+        if (m == 0)
+            break;
+        scanf("%lld%lld", &a, &b);
+        a += b; // ä¸‹é¢å°† (a + b) è½¬æ¢ä¸º m è¿›åˆ¶
+        int ans[50], size = 0; // ans ç”¨äºä¿å­˜ä¾æ¬¡è½¬æ¢å¾—åˆ°çš„å„ä¸ªæ•°ä½æ•°å­—çš„å€¼
+        // size è¡¨ç¤ºå…¶ä¸ªæ•°
+        do { // ä¾æ¬¡æ±‚å¾—å„ä¸ªæ•°ä½ä¸Šçš„æ•°å­—å€¼
+            ans[size++] = a % m;
+            a /= m;
+        } while (a != 0); // å½“ a ä¸ä¸º 0 æ—¶é‡å¤
+        for (int i = size - 1; i >= 0; i--) {
+            printf("%d", ans[i]);
+        }             // è¾“å‡ºï¼Œæ³¨æ„é¡ºåºä¸ºä»é«˜ä½åˆ°ä½ä½
+        printf("\n"); // è¾“å‡ºæ¢è¡Œ
+    }
+    return 0;
 }
