@@ -18,14 +18,17 @@ using namespace std;
  * @return pivot 索引
  */
 int partition(vector<int> &nums, int low, int high) {
-    int pivot = nums[high];
-    int i = low - 1;
-    for (int j = low; j < high; j++) { // 注意在循环过程中，pivot 不应被交换
-        if (nums[j] <= pivot)
-            swap(nums[++i], nums[j]);
+    int pivot = nums[low];
+    int left = low + 1;
+    int right = high;
+    while (left <= right) { // 必须取等
+        while (left <= right && nums[left] <= pivot) left++; // left 指向首个大于 pivot 的元素
+        while (left <= right && nums[right] > pivot) right--; // right 指向最后一个小于等于 pivot 的元素
+        if (left < right) // 否则元素与自身交换没有意义
+            swap(nums[left], nums[right]);
     }
-    swap(nums[high], nums[i + 1]);
-    return i + 1;
+    swap(nums[right], nums[low]); // right 指向最后一个 小于等于 pivot 的元素
+    return right;
 }
 
 /**
