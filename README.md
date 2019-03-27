@@ -9,7 +9,7 @@
 | -------- | ------------------------------------------------------------ | ------------------ | ------------------------------------------------------------ |
 | C        | MS VC++ 2008 Express (“`C`”) and MinGW GCC 4.4.0 (“`GCC`”)   | C99                | The macro `ONLINE_JUDGE` is defined.The C99 implementation of GCC 4.4.0 is not considered feature-complete. In particular, support for variable-length arrays and intrinsic complex and imaginary types is labeled “broken”. |
 | C++      | MS VC++ 2008 Express (“`C++`”) and MinGW GCC 4.4.0 (“`G++`”) | C++98              | The macro `ONLINE_JUDGE` is defined.Currently there is no plan to enable the experimental C++0x features before the new C++ standard is officially published and relatively well-supported. |
-| Java     | JDK 6 (“`Java`”)                                             |                    | The system property `ONLINE_JUDGE` is set.You should write a class named `Main` with public or package visibility. This `Main` class should contain the entry-point `main` method. |
+| Java     | JDK 6 (“`Java`”)                                             |                    | The system property `ONLINE_JUDGE` is s.You should write a class named `Main` with public or package visibility. This `Main` class should contain the entry-point `main` method. |
 | Pascal   | FreePascal 2.2.0 (“`Pascal`”)                                | FreePascal dialect | The macro `ONLINE_JUDGE` is defined.                         |
 | Fortran  | MinGW GCC 4.4.0 (“`Fortran`”)                                | Fortran 95         |                                                              |
 
