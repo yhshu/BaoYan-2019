@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD 98)
 add_executable(noi1.6.08 Simulation/NOI/1.6一维数组/8.石头剪刀布.cpp)
 add_executable(noi2.5.666 Simulation/NOI/2.5搜索/666.放苹果.cpp)
 add_executable(noi2.5.917 Simulation/NOI/2.5搜索/917.KnightMoves.cpp)
+add_executable(noi2.6.9290 Simulation/NOI/2.6动态规划/9290.Pku2680_Computer_Transformation.cpp)
 
 add_executable(wangdao3.1 Simulation/王道论坛计算机考研机试指南/3.1括号匹配问题【栈的应用】.cpp)
 add_executable(wangdao3.2 Simulation/王道论坛计算机考研机试指南/3.2简单计算器.cpp)
