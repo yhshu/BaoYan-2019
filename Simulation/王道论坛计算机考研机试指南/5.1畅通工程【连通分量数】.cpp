@@ -1,8 +1,8 @@
 #include <iostream>
 
-#define MAXN 1010
+#define maxn 1010
 using namespace std;
-int Tree[MAXN];
+int Tree[maxn];
 
 int findRoot(int x) {
     if (Tree[x] == -1)
@@ -18,9 +18,9 @@ int main() {
         cin >> m;
         int ans = 0;
         for (int i = 1; i <= n; i++)
-            Tree[i] = -1;
+            Tree[i] = -1; // 并查集初始化
 
-        while (m-- != 0) { // 读入边信息
+        while (m--) { // 读入边信息
             int a, b;
             cin >> a >> b;
             a = findRoot(a);

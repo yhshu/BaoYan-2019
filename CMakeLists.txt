@@ -9,12 +9,16 @@ add_executable(wangdao3.5 Simulation/王道论坛计算机考研机试指南/3.5
 add_executable(wangdao4.2 Simulation/王道论坛计算机考研机试指南/4.2又一版A+B【进制转换】.cpp)
 add_executable(wangdao4.5.3 Simulation/王道论坛计算机考研机试指南/4.5最小公倍数.cpp)
 add_executable(wangdao4.8 Simulation/王道论坛计算机考研机试指南/4.8质因数的个数.cpp)
+add_executable(wangdao5.1 Simulation/王道论坛计算机考研机试指南/5.1畅通工程【连通分量数】.cpp)
+add_executable(wangdao5.2 Simulation/王道论坛计算机考研机试指南/5.2More_is_better【最大分量顶点数】.cpp)
+add_executable(wangdao7.2 Simulation/王道论坛计算机考研机试指南/7.2不容易系列之一【错排问题】.cpp)
 
 add_executable(quicksort_one_way Algorithm/Sort/quicksort_one_way.cpp)
 add_executable(quicksort_two_ways Algorithm/Sort/quicksort_two_ways.cpp)
 add_executable(POJ2388_one_way Algorithm/Sort/POJ2388_one_way.cpp)
 add_executable(POJ2388_two_ways Algorithm/Sort/POJ2388_two_ways.cpp)
 add_executable(POJ2388_three_pointers Algorithm/Sort/POJ2388_three_pointers.cpp)
+add_executable(POJ3181 Algorithm/DynamicProgramming/POJ3181Dollar_Dayz.cpp)
 
 add_executable(2018thu.se.1.3 Simulation/2018清华软院夏令营/1.回文数.cpp)
 add_executable(2018thu.se.2.1_2 Simulation/2018清华软院九推/大整数运算.cpp)
