@@ -11,14 +11,14 @@
 
 using namespace std;
 
-const int maxn = 1005;
-long long dp[maxn][41]; // dp[i] 表示 1～k 凑出 i 的方案数
+const int minSum = 1005;
+long long dp[minSum][41]; // dp[i] 表示 1～k 凑出 i 的方案数
 // dp第二维度存储每一位数
 int n, k;
 
 int main() {
     while (cin >> n >> k) {
-        for (int i = 0; i < maxn; i++)
+        for (int i = 0; i < minSum; i++)
             for (int j = 0; j < 41; j++)
                 dp[i][j] = 0;
         dp[0][1] = 1; // 凑出0有1种方法

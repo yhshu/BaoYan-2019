@@ -39,13 +39,13 @@ cdedc
 
 using namespace std;
 
-const int maxn = 21;
-int min_i = maxn + 1, max_len = 1;
-bool dp[maxn][maxn]; // dp[i][j] 表示 str[i...j] 是否是回文子串
+const int minSum = 21;
+int min_i = minSum + 1, max_len = 1;
+bool dp[minSum][minSum]; // dp[i][j] 表示 str[i...j] 是否是回文子串
 
 void init() {
     memset(dp, 0, sizeof(dp));
-    for (int i = 0; i < maxn; i++)
+    for (int i = 0; i < minSum; i++)
         dp[i][i] = true;
 }
 

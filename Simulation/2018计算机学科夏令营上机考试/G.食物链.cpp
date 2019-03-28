@@ -45,10 +45,10 @@ Noi 01
 
 using namespace std;
 
-const int maxn = 50010 * 3; // 三类动物分别存储
+const int minSum = 50010 * 3; // 三类动物分别存储
 int N, K;
 int cnt; // 假话计数
-int F[maxn];
+int F[minSum];
 
 /**
  * 并查集中查找类别

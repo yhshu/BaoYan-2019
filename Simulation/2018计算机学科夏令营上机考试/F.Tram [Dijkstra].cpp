@@ -48,10 +48,10 @@ public:
     Edge(int dis, int to) : dis(dis), to(to) {}
 };
 
-const int maxn = 100 + 10;
-int dis[maxn]; // dis[i]是起点到点i的距离
+const int minSum = 100 + 10;
+int dis[minSum]; // dis[i]是起点到点i的距离
 int n, a, b; // 顶点数量，起点，终点
-vector<Edge> nei[maxn]; // 邻接表
+vector<Edge> nei[minSum]; // 邻接表
 
 struct cmp {
     bool operator()(int a, int b) {
@@ -60,10 +60,10 @@ struct cmp {
 };
 
 priority_queue<int, vector<int>, cmp> que; // 堆优化
-bool vis[maxn];
+bool vis[minSum];
 
 void init() {
-    for (int i = 0; i <= maxn; i++) {
+    for (int i = 0; i <= minSum; i++) {
         dis[i] = INF;
     }
 }

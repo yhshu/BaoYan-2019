@@ -16,15 +16,15 @@
 #include <cmath>
 
 using namespace std;
-const int maxn = 1010;
-long long dp[maxn];
+const int minSum = 1010;
+long long dp[minSum];
 
 int main() {
     std::ios::sync_with_stdio(false);
     std::cin.tie(0);
 
     dp[2] = 1;
-    for (int i = 3; i <= maxn; i++) {
+    for (int i = 3; i <= minSum; i++) {
         dp[i] = dp[i - 2] + (long long) pow(2, i - 3);
     }
 

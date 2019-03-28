@@ -37,14 +37,14 @@ The first and only line of the output should contain the target minimal number. 
 using namespace std;
 
 #define INF 0x3f3f3f3f
-const int maxn = 100 + 10;
-int dis[maxn][maxn];
+const int minSum = 100 + 10;
+int dis[minSum][minSum];
 int n, a, b;
 
 
 void init() {
-    for (int i = 0; i < maxn; i++) {
-        for (int j = 0; j < maxn; j++) {
+    for (int i = 0; i < minSum; i++) {
+        for (int j = 0; j < minSum; j++) {
             if (i == j) dis[i][j] = 0;
             else dis[i][j] = INF;
         }

@@ -18,8 +18,8 @@
 
 using namespace std;
 
-const int maxn = 1e5 + 10;
-bool comp[maxn]; // 合数为 true
+const int minSum = 1e5 + 10;
+bool comp[minSum]; // 合数为 true
 
 int main() {
     int x, y;

@@ -43,8 +43,8 @@
 
 using namespace std;
 
-const int maxn = 110;
-int dp[maxn];
+const int minSum = 110;
+int dp[minSum];
 
 int lis(vector<int> &nums) {
     int ans = -1;
