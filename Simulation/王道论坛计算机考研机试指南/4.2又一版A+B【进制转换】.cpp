@@ -7,7 +7,7 @@ int main() {
         if (m == 0)
             break;
         scanf("%lld%lld", &a, &b);
-        a += b; // 下面将 (a + b) 转换为 m 进制
+        a += b; // 下面将 (a + b) 转换为 num 进制
         int ans[50], size = 0; // ans 用于保存依次转换得到的各个数位数字的值
         // size 表示其个数
         do { // 依次求得各个数位上的数字值

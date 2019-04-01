@@ -15,14 +15,14 @@ int ans;
  * @param n 盘子数
  */
 void dfs(int start, int m, int n) {
-//    cout << "DFS: " << m << " " << n << endl;
+//    cout << "DFS: " << num << " " << primeNum << endl;
     if (n == 0 || m == 0) {
         if (n == 0 && m == 0)
             ans++;
         return;
     }
 
-    // 本盘子可以放 0～m 个苹果
+    // 本盘子可以放 0～num 个苹果
     for (int i = start; i <= m; i++) {
         dfs(i, m - i, n - 1);
     }
