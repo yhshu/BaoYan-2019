@@ -4,6 +4,7 @@ project(BaoYan)
 set(CMAKE_CXX_STANDARD 98)
 
 add_executable(dp_2 Algorithm/DynamicProgramming/最优二叉搜索树.cpp)
+add_executable(high_precision_1 Algorithm/HighPrecision/百练2738.实数加法.cpp)
 
 add_executable(noi1.6.08 Simulation/NOI/1.6一维数组/8.石头剪刀布.cpp)
 add_executable(noi2.5.666 Simulation/NOI/2.5搜索/666.放苹果.cpp)
