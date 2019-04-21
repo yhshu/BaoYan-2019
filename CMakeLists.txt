@@ -5,6 +5,7 @@ set(CMAKE_CXX_STANDARD 98)
 
 add_executable(dp_2 Algorithm/DynamicProgramming/最优二叉搜索树.cpp)
 add_executable(high_precision_1 Algorithm/HighPrecision/百练2738.实数加法.cpp)
+add_executable(dfs_1 Algorithm/DFS/迷宫.cpp)
 
 add_executable(noi1.6.08 Simulation/NOI/1.6一维数组/8.石头剪刀布.cpp)
 add_executable(noi2.5.666 Simulation/NOI/2.5搜索/666.放苹果.cpp)
@@ -26,6 +27,7 @@ add_executable(wangdao7.2 Simulation/王道论坛计算机考研机试指南/7.2
 
 add_executable(quicksort_one_way Algorithm/Sort/quicksort_one_way.cpp)
 add_executable(quicksort_two_ways Algorithm/Sort/quicksort_two_ways.cpp)
+add_executable(POJ2388_quick_select Algorithm/Sort/POJ2388_quick_select.cpp)
 add_executable(POJ2388_one_way Algorithm/Sort/POJ2388_one_way.cpp)
 add_executable(POJ2388_two_ways Algorithm/Sort/POJ2388_two_ways.cpp)
 add_executable(POJ2388_three_pointers Algorithm/Sort/POJ2388_three_pointers.cpp)
