@@ -7,9 +7,15 @@ add_executable(dp_2 Algorithm/DynamicProgramming/最优二叉搜索树.cpp)
 add_executable(high_precision_1 Algorithm/HighPrecision/百练2738.实数加法.cpp)
 add_executable(dfs_1 Algorithm/DFS/迷宫.cpp)
 
+add_executable(trie.1 Algorithm/Trie/WYJ和渡边梨加.cpp)
+add_executable(math.1 Algorithm/Math/copy_and_submit.cpp)
+add_executable(math.2 Algorithm/Math/管管.cpp)
+
 add_executable(noi1.6.08 Simulation/NOI/1.6一维数组/8.石头剪刀布.cpp)
+add_executable(noi1.7.19 Simulation/NOI/1.7字符串/字符串移位包含问题.cpp)
 add_executable(noi2.5.666 Simulation/NOI/2.5搜索/666.放苹果.cpp)
 add_executable(noi2.5.917 Simulation/NOI/2.5搜索/917.KnightMoves.cpp)
+add_executable(noi2.5.1789 Simulation/NOI/2.5搜索/1789.算24.cpp)
 add_executable(noi2.6.9290 Simulation/NOI/2.6动态规划/9290.Pku2680_Computer_Transformation.cpp)
 add_executable(noi3.7.2726 Simulation/NOI/3.7数据结构之堆/2726.集合问题.cpp)
 add_executable(noi3.9.1806 Simulation/NOI/3.9C++STL/1806.词典.cpp)
@@ -54,3 +60,4 @@ add_executable(2018pku.cs.f.1 "Simulation/2018北京大学计算机学科夏令�
 add_executable(2018pku.cs.f.2 "Simulation/2018北京大学计算机学科夏令营上机考试/F.Tram [Floyd].cpp")
 add_executable(2018pku.cs.g "Simulation/2018北京大学计算机学科夏令营上机考试/G.食物链.cpp")
 
+add_executable(2018pku.tuimian.b "Simulation/2018研究生推免上机考试/B.简单密码.cpp")

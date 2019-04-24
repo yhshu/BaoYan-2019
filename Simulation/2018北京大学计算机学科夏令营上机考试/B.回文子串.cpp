@@ -34,6 +34,8 @@ cdedc
  * 4. Manacher 算法
  */
 
+// 本代码是最长回文子串的动态规划解法
+
 #include <iostream>
 #include <cstring>
 
@@ -43,14 +45,24 @@ const int minSum = 21;
 int min_i = minSum + 1, max_len = 1;
 bool dp[minSum][minSum]; // dp[i][j] 表示 str[i...j] 是否是回文子串
 
+/**
+ * 初始化 动态规划数组
+ *
+ */
 void init() {
     memset(dp, 0, sizeof(dp));
     for (int i = 0; i < minSum; i++)
         dp[i][i] = true;
 }
 
+/**
+ * 最长回文子串
+ * @param str 源字符串
+ * @return 字符串 str 的最长回文子串
+ */
 string f(string str) {
 
+    // 首先找出长度为2的回文子串，记录在动态规划数组中
     for (int i = 1; i < str.size(); i++) {
         if (str[i - 1] == str[i]) {
             dp[i - 1][i] = true;
