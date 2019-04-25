@@ -10,7 +10,7 @@
 0.05 0.10 0.05 0.05 0.05 0.10
 */
 
-#include <bits/stdc++.h>
+#include "stdafx.h"
 
 using namespace std;
 
