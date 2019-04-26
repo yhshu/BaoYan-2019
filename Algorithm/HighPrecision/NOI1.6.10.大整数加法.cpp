@@ -18,9 +18,14 @@
 程序设计实习2007
 */
 
+
+// 本题注意点：
+// 1. 字符串的高位是大数的低位，注意字符串的循环变量的范围
+// 2. 输入的数字可能有前导0，如果该数字就是0，要保留一位0
+
 #include "stdafx.h"
 #include <iostream>
-#include <string>
+#include <cstring>
 
 using namespace std;
 
@@ -44,8 +49,11 @@ public:
 
     BigInteger(const string &str) { // 字符串的低位是数字的高位
         init();
-        for(int i = str.size(); i >= 0; i--) {
-            this->d[len++] = str[i];
+        for(int i = str.size() - 1; i >= 0; i--) { // 注意循环变量的范围
+            this->d[len++] = str[i] - '0';
+        }
+        while(len > 1 && d[len - 1] == 0) {
+            len--;
         }
     }
 
@@ -53,12 +61,12 @@ public:
         BigInteger res;
         int carry = 0;
         // 从大数低位开始相加
-        for(int i = 0; i < max(this->len, bigInteger.len); i++) {
+        for(int i = 0; i < max(this->len, bigInteger.len); i++) { // 注意循环变量的范围
             int t = d[i] + bigInteger.d[i] + carry;
             res.d[res.len++] = t % 10;
             carry = t / 10;
         }
-        if(carry)
+        if(carry) // 处理最后的进位
             res.d[res.len++] = carry;
         return res;
     }
@@ -77,7 +85,7 @@ int main() {
 
     BigInteger bigInt1(a);
     BigInteger bigInt2(b);
-    BigInteger res = a + b;
+    BigInteger res = bigInt1 + bigInt2;
     cout << res;
 
     return 0;
