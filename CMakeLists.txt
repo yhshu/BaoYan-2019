@@ -5,6 +5,7 @@ set(CMAKE_CXX_STANDARD 98)
 
 add_executable(dp_2 Algorithm/DynamicProgramming/最优二叉搜索树.cpp)
 add_executable(high_precision_1 Algorithm/HighPrecision/百练2738.实数加法.cpp)
+add_executable(high_precision_2 Algorithm/HighPrecision/NOI.1.6.14.求10000以内n的阶乘.cpp)
 add_executable(dfs_1 Algorithm/DFS/迷宫.cpp)
 
 add_executable(trie.1 Algorithm/Trie/WYJ和渡边梨加.cpp)
