@@ -36,7 +36,7 @@ The first and only line of the output should contain the target minimal number. 
 
 using namespace std;
 
-#define INF 0x3f3f3f3f
+#define inf 0x3f3f3f3f
 const int minSum = 100 + 10;
 int dis[minSum][minSum];
 int n, a, b;
@@ -46,7 +46,7 @@ void init() {
     for (int i = 0; i < minSum; i++) {
         for (int j = 0; j < minSum; j++) {
             if (i == j) dis[i][j] = 0;
-            else dis[i][j] = INF;
+            else dis[i][j] = inf;
         }
     }
 }
@@ -55,7 +55,7 @@ void Floyd() {
     for (int k = 1; k <= n; ++k) {
         for (int i = 1; i <= n; ++i) {
             for (int j = 1; j <= n; ++j) {
-                if (dis[i][k] != INF && dis[k][j] != INF && dis[i][k] + dis[k][j] < dis[i][j]) {
+                if (dis[i][k] != inf && dis[k][j] != inf && dis[i][k] + dis[k][j] < dis[i][j]) {
                     dis[i][j] = dis[i][k] + dis[k][j];
                 }
             }
@@ -83,7 +83,7 @@ int main() {
 
     Floyd();
     int res = dis[a][b];
-    if (dis[a][b] == INF)
+    if (dis[a][b] == inf)
         res = -1;
     cout << res << endl;
     return 0;

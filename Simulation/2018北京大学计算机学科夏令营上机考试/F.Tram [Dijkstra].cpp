@@ -38,7 +38,7 @@ The first and only line of the output should contain the target minimal number. 
 
 using namespace std;
 
-#define INF 0x3f3f3f3f
+const int inf = 0x3f3f3f3f;
 
 class Edge {
 public:
@@ -62,9 +62,12 @@ struct cmp {
 priority_queue<int, vector<int>, cmp> que; // 堆优化
 bool vis[minSum];
 
+/**
+ * 初始化距离数组
+ */
 void init() {
     for (int i = 0; i <= minSum; i++) {
-        dis[i] = INF;
+        dis[i] = inf;
     }
 }
 
@@ -88,10 +91,10 @@ void Dijkstra() {
 }
 
 int main() {
-    init();
+    init(); // 初始化
 
     // 输入
-    cin >> n >> a >> b;
+    cin >> n >> a >> b; // 顶点数量，起点和终点
     int m;
     for (int u = 1; u <= n; u++) {
         cin >> m;
@@ -107,7 +110,7 @@ int main() {
 
     Dijkstra();
     int res = dis[b];
-    if (res == INF)
+    if (res == inf)
         res = -1;
     cout << res << endl;
     return 0;
