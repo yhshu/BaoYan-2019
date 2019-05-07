@@ -18,7 +18,7 @@ int main() {
     while (cin >> n) {
         for (int i = 1; i < maxn; i++) {
             tree[i] = -1;
-            sum[i] = 1; // 所得集合的元素个数为1
+            sum[i] = 1;           // 所得集合的元素个数为1
         }
         while (n--) {
             int a, b;
@@ -26,7 +26,7 @@ int main() {
             a = findRoot(a);
             b = findRoot(b);
             if (a != b) {
-                tree[a] = b; // a属于b类
+                tree[a] = b;      // a属于b类
                 sum[b] += sum[a]; // b类顶点数加上a类顶点数
             }
         }

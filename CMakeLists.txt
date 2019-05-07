@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.13)
 project(BaoYan)
 
-set(CMAKE_CXX_STANDARD 98)
+set(CMAKE_CXX_STANDARD 98) # C++ 98 should be used in algorithm examinations
 
 add_executable(dp_2 Algorithm/DynamicProgramming/最优二叉搜索树.cpp)
 add_executable(dp_3 Algorithm/DynamicProgramming/1481.MaximumSum.cpp)
@@ -24,6 +24,7 @@ add_executable(noi3.7.2726 Simulation/NOI/3.7数据结构之堆/2726.集合问�
 add_executable(noi3.9.1806 Simulation/NOI/3.9C++STL/1806.词典.cpp)
 add_executable(noi3.9.3345 Simulation/NOI/3.9C++STL/3345.priority_queue练习题.cpp)
 
+add_executable(wangdao2.8 Simulation/王道论坛计算机考研机试指南/2.8叠筐【排版】.cpp)
 add_executable(wangdao3.1 Simulation/王道论坛计算机考研机试指南/3.1括号匹配问题【栈的应用】.cpp)
 add_executable(wangdao3.2 Simulation/王道论坛计算机考研机试指南/3.2简单计算器.cpp)
 add_executable(wangdao3.5 Simulation/王道论坛计算机考研机试指南/3.5二叉排序树.cpp)
@@ -55,6 +56,8 @@ add_executable(2018pku.se.b Simulation/2018年北京大学软件工程学科夏�
 add_executable(2018pku.se.d Simulation/2018年北京大学软件工程学科夏令营上机练习/D.Safecracker.cpp)
 add_executable(2018pku.se.e Simulation/2018年北京大学软件工程学科夏令营上机练习/E.怪盗基德的滑翔翼［最长上升子序列］.cpp)
 add_executable(2018pku.se.g Simulation/2018年北京大学软件工程学科夏令营上机练习/G.实现堆结构.cpp)
+
+add_executable(2016pku.cs1.g Simulation/2016计算机学科夏令营上机考试/G.重建二叉树[已知前序中序求后序].cpp)
 
 add_executable(2018pku.cs.a Simulation/2018北京大学计算机学科夏令营上机考试/A.计算两个日期之间的天数.cpp)
 add_executable(2018pku.cs.b Simulation/2018北京大学计算机学科夏令营上机考试/B.回文子串.cpp)

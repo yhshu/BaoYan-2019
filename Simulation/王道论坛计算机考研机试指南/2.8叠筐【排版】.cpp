@@ -23,6 +23,10 @@ ABBBBBBBBBA
  @@@
 */
 
+
+// 本题思路：从里层向外层逐层输出，每一层先通过中心点坐标获取左上角的坐标
+// 通过边长次数的循环将四边填充，并将四个角置为空格
+
 #include <iostream>
 
 using namespace std;
@@ -33,19 +37,23 @@ int main() {
     int n;                    // 外筐尺寸，是奇数
     bool firstCase = true;
     while (cin >> n >> a >> b) {
-        if (firstCase)
+        if (firstCase)  // 第一个测试样例不输出换行
             firstCase = false;
-        else
+        else // 从第二个测试样例之后，先输出换行
             cout << endl;
 
-        // 从里到外逐层输出
+        // 从里到外逐层输出，i 是矩形边长，j 是边界到中心点距离
         for (int i = 1, j = 1; i <= n; i += 2, j++) {
-            int x = n / 2 + 1, y = x;
+            // 获得中心点的坐标 (x, y)
+            int x = n / 2 + 1;
+            int y = x;
+            // 移动到该层的左上角
             x -= j - 1;
-            y -= j - 1; // 该层的左上角
-            char c = (j % 2 == 1)
-                     ? a
-                     : b; // 最内层作为第1层向外数，奇数层填充a，偶数层填充b
+            y -= j - 1;
+
+            // 最内层作为第1层向外数，奇数层填充a，偶数层填充b
+            char c = (j % 2 == 1) ? a : b;
+
             for (int k = 1; k <= i; k++) {
                 outPut[x + k - 1][y] = c;         // 左边
                 outPut[x][y + k - 1] = c;         // 上边
@@ -55,7 +63,7 @@ int main() {
         }
 
         // 四角置为空格
-        if (n != 1) { // 注意当n=1时不需要
+        if (n != 1) { // 注意当 n = 1 时不需要
             outPut[1][1] = ' ';
             outPut[n][1] = ' ';
             outPut[1][n] = ' ';
