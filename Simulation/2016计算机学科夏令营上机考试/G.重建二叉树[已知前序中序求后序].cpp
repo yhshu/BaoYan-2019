@@ -36,8 +36,6 @@ public:
     char ch;
 
     TreeNode(char ch) : ch(ch), left(NULL), right(NULL) {}
-
-    TreeNode(char ch, TreeNode *left, TreeNode *right) : ch(ch), left(left), right(right) {}
 };
 
 void postOrder(TreeNode *root) {
@@ -51,7 +49,8 @@ void postOrder(TreeNode *root) {
 
 TreeNode *buildTree(string preOrder, string inOrder) {
     if (preOrder.size() != inOrder.size()) {
-        cout << "[Debug] The size of the two strings does not match.\n";
+        cout << "[Debug] The size of the two strings does not match, preOrder: " << preOrder << ", inOrder: " << inOrder
+             << "\n";
         return NULL;
     }
     if (preOrder.empty() && inOrder.empty())
@@ -60,10 +59,10 @@ TreeNode *buildTree(string preOrder, string inOrder) {
     const int size = preOrder.size();
     int rootPos = inOrder.find(preOrder[0]);
     TreeNode *root = new TreeNode(preOrder[0]);
-    const int len1 = rootPos - 1;
+    const int len1 = rootPos;
     const int len2 = size - rootPos - 1;
     root->left = buildTree(preOrder.substr(1, len1), inOrder.substr(0, len1));
-    root->right = buildTree(preOrder.substr(len1 + 2, len2), inOrder.substr(rootPos + 1, len2));
+    root->right = buildTree(preOrder.substr(len1 + 1, len2), inOrder.substr(rootPos + 1, len2));
     return root;
 }
 
