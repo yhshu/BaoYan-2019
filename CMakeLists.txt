@@ -5,6 +5,7 @@ set(CMAKE_CXX_STANDARD 98) # C++ 98 should be used in algorithm examinations
 
 add_executable(dp_2 Algorithm/DynamicProgramming/最优二叉搜索树.cpp)
 add_executable(dp_3 Algorithm/DynamicProgramming/1481.MaximumSum.cpp)
+add_executable(dp_4 Algorithm/DynamicProgramming/HDU1024.MaxSumPlusPlus.cpp)
 add_executable(high_precision_1 Algorithm/HighPrecision/百练2738.实数加法.cpp)
 add_executable(high_precision_2 Algorithm/HighPrecision/NOI.1.6.14.求10000以内n的阶乘.cpp)
 add_executable(dfs_1 Algorithm/DFS/迷宫.cpp)
@@ -69,5 +70,7 @@ add_executable(2018pku.cs.e "Simulation/2018北京大学计算机学科夏令营
 add_executable(2018pku.cs.f.1 "Simulation/2018北京大学计算机学科夏令营上机考试/F.Tram [Dijkstra].cpp")
 add_executable(2018pku.cs.f.2 "Simulation/2018北京大学计算机学科夏令营上机考试/F.Tram [Floyd].cpp")
 add_executable(2018pku.cs.g "Simulation/2018北京大学计算机学科夏令营上机考试/G.食物链.cpp")
+
+add_executable(2019pku.kaoyan.a Simulation/2019信科研究生上机测试/A.护林员盖房子.cpp)
 
 add_executable(2018pku.tuimian.b "Simulation/2018研究生推免上机考试/B.简单密码.cpp")
