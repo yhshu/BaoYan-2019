@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD 98) # C++ 98 should be used in algorithm examinations
 add_executable(dp_2 Algorithm/DynamicProgramming/最优二叉搜索树.cpp)
 add_executable(dp_3 Algorithm/DynamicProgramming/1481.MaximumSum.cpp)
 add_executable(dp_4 Algorithm/DynamicProgramming/HDU1024.MaxSumPlusPlus.cpp)
+add_executable(dp_5 Algorithm/DynamicProgramming/1088.滑雪.cpp)
 add_executable(high_precision_1 Algorithm/HighPrecision/百练2738.实数加法.cpp)
 add_executable(high_precision_2 Algorithm/HighPrecision/NOI.1.6.14.求10000以内n的阶乘.cpp)
 add_executable(high_precision_3 Algorithm/HighPrecision/BigInteger.cpp Algorithm/HighPrecision/BigInteger.h)
