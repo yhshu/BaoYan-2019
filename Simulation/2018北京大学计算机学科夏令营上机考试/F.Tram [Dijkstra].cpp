@@ -48,53 +48,48 @@ public:
     Edge(int dis, int to) : dis(dis), to(to) {}
 };
 
-const int minSum = 100 + 10;
-int dis[minSum]; // dis[i]是起点到点i的距离
+const int maxn = 100 + 10;
+int dis[maxn]; // dis[i]是起点到点i的距离
 int n, a, b; // 顶点数量，起点，终点
-vector<Edge> nei[minSum]; // 邻接表
+vector<Edge> nei[maxn]; // 邻接表
 
-struct cmp {
-    bool operator()(int a, int b) {
-        return dis[a] > dis[b];
-    }
-};
+bool operator<(const Edge &edge1, const Edge &edge2) {
+    return edge1.dis > edge2.dis;
+}
 
-priority_queue<int, vector<int>, cmp> que; // 堆优化
-bool vis[minSum];
+priority_queue<Edge> que; // 堆优化
+bool vis[maxn];
 
-/**
- * 初始化距离数组
- */
 void init() {
-    for (int i = 0; i <= minSum; i++) {
+    for (int i = 0; i <= maxn; i++) {
         dis[i] = inf;
     }
 }
 
 void Dijkstra() {
     dis[a] = 0;
-    que.push(a);
+    que.push(Edge(0, a));
 
     while (!que.empty()) {
-        int cur = que.top();
+        Edge cur = que.top();
         que.pop();
-        vis[cur] = true;
+        vis[cur.to] = true;
 
-        for (int i = 0; i < nei[cur].size(); i++) {
-            Edge e = nei[cur][i];
+        for (int i = 0; i < nei[cur.to].size(); i++) {
+            Edge e = nei[cur.to][i];
             if (vis[e.to]) continue;
-            if (e.dis + dis[cur] < dis[e.to])
-                dis[e.to] = dis[cur] + e.dis;
-            que.push(e.to);
+            if (e.dis + dis[cur.to] < dis[e.to])
+                dis[e.to] = dis[cur.to] + e.dis;
+            que.push(e);
         }
     }
 }
 
 int main() {
-    init(); // 初始化
+    init();
 
     // 输入
-    cin >> n >> a >> b; // 顶点数量，起点和终点
+    cin >> n >> a >> b;
     int m;
     for (int u = 1; u <= n; u++) {
         cin >> m;

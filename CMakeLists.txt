@@ -12,6 +12,7 @@ add_executable(high_precision_2 Algorithm/HighPrecision/NOI.1.6.14.求10000以�
 add_executable(high_precision_3 Algorithm/HighPrecision/BigInteger.cpp Algorithm/HighPrecision/BigInteger.h)
 add_executable(dfs_1 Algorithm/DFS/迷宫.cpp)
 add_executable(tree1 Algorithm/Tree/POJ1258.Agri-Net[Kruskal].cpp)
+add_executable(graph1 Algorithm/Graph/3159.Candies.cpp)
 
 add_executable(trie.1 Algorithm/Trie/WYJ和渡边梨加.cpp)
 add_executable(math.1 Algorithm/Math/copy_and_submit.cpp)
