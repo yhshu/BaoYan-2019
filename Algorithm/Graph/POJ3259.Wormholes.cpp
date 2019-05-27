@@ -23,7 +23,7 @@ Lines M+2..M+W+1 of each farm: Three space-separated numbers (S, E, T) that desc
 Output
 
 Lines 1..F: For each farm, output "YES" if FJ can achieve his goal, otherwise output "NO" (do not include the quotes).
- 
+
 Sample Input
 
 2
@@ -60,38 +60,61 @@ int F, N, M, W;
 const int inf = 0x3f3f3f3f;
 const int maxn = 1005;
 
-struct Edge {
-    int e, w;
+class Edge {
+public:
+    int to;
+    int wei;
 
-    Edge(int ee, int ww) : e(ee), w(ww) {}
-
-    Edge() {}
+    Edge(int to, int wei) : to(to), wei(wei) {}
 };
 
-vector<Edge> graph[maxn];    // 整个有向图
-int updateTimes[maxn];       // 最短路的改进次数
-int dis[maxn];               // dis[i] 是源到 i 的目前最短路长度
+vector<Edge> graph[maxn];    // 图的邻接表表示
+int cnt[maxn];               // 最短路的松弛操作次数
+int dis[maxn];               // dis[i] 是源点到顶点 i 的目前最短路长度
 
-int Spfa(int v) {
-    for (int i = 1; i <= N; ++i)
+void init() {
+    for (int i = 0; i < maxn; ++i) {
+        graph[i].clear();
+        cnt[i] = 0;
         dis[i] = inf;
+    }
+}
 
-    dis[v] = 0;
+void input() {
+    int from, to, wei;
+    for (int i = 0; i < M; ++i) {
+        cin >> from >> to >> wei;
+        graph[from].push_back(Edge(to, wei));
+        graph[to].push_back(Edge(from, wei));
+    }
+
+    for (int i = 0; i < W; ++i) {
+        cin >> from >> to >> wei;
+        graph[from].push_back(Edge(to, -wei));
+    }
+}
+
+/**
+ * SPFA 算法
+ * @param start 起始顶点
+ * @return 有负权环返回 true，无负权环返回 false
+ */
+bool SPFA(int start) {
+    dis[start] = 0;
     queue<int> que;
-    que.push(v);
-    memset(updateTimes, 0, sizeof(updateTimes));
+    que.push(start);
 
     while (!que.empty()) {
-        int s = que.front();
+        int cur = que.front();
         que.pop();
 
-        for (int i = 0; i < graph[s].size(); ++i) {
-            int e = graph[s][i].e;
-            if (dis[e] > dis[s] + graph[s][i].w) {
-                dis[e] = dis[s] + graph[s][i].w;
-                que.push(e);   // 没判队列里是否已经有 e，可能会慢一些
-                ++updateTimes[e];
-                if (updateTimes[e] >= N)
+        for (int i = 0; i < graph[cur].size(); i++) {
+            Edge edge = graph[cur][i];
+            if (dis[edge.to] > dis[cur] + edge.wei) {  // 执行松弛操作
+                dis[edge.to] = dis[cur] + edge.wei;
+                que.push(edge.to);
+                cnt[edge.to]++;
+                if (cnt[edge.to] >= N)
                     return true;
             }
         }
@@ -99,29 +122,13 @@ int Spfa(int v) {
     return false;
 }
 
-void init() {
-    for (int i = 1; i < maxn; ++i)
-        graph[i].clear();
-}
-
 int main() {
     cin >> F;
     while (F--) {
         cin >> N >> M >> W;
         init();
-        int s, e, t;
-        for (int i = 0; i < M; ++i) {
-            cin >> s >> e >> t;
-            graph[s].push_back(Edge(e, t));
-            graph[e].push_back(Edge(s, t));
-        }
-
-        for (int i = 0; i < W; ++i) {
-            cin >> s >> e >> t;
-            graph[s].push_back(Edge(e, -t));
-        }
-
-        if (Spfa(1))
+        input();
+        if (SPFA(1))
             cout << "YES" << endl;
         else
             cout << "NO" << endl;
