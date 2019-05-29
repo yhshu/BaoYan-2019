@@ -26,6 +26,10 @@ int nums[maxn];
 int n;
 int dp[maxn]; // dp[i] 表示 nums[0...i] 的最长上升子序列长度
 
+/**
+ * 求最长上升子序列的长度
+ * @return 最长上升子序列的长度
+ */
 int lis() {
     int ans = 1; // 注意！ans 的初始值应是 1；考虑输入是一个下降序列或所有数字相同的情况
     for (int i = 1; i < n; i++) {
