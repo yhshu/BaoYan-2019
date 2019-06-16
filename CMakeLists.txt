@@ -3,6 +3,7 @@ project(BaoYan)
 
 set(CMAKE_CXX_STANDARD 98) # C++ 98 should be used in algorithm examinations
 
+add_executable(simulation_1 Algorithm/Simulation/3750.魔兽世界.cpp)
 add_executable(dp_2 Algorithm/DynamicProgramming/最优二叉搜索树.cpp)
 add_executable(dp_3 Algorithm/DynamicProgramming/1481.MaximumSum.cpp)
 add_executable(dp_4 Algorithm/DynamicProgramming/HDU1024.MaxSumPlusPlus.cpp)

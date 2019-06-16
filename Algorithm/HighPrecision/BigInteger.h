@@ -66,6 +66,13 @@ public:
     BigInteger operator*(int num);
 
     /**
+     * 长整数乘法
+     * @param bigInteger 乘数
+     * @return 两个长整数的积
+     */
+    BigInteger operator*(BigInteger bigInteger);
+
+    /**
      * 长整数除法
      * 不返回余数
      * @param divisor 除数

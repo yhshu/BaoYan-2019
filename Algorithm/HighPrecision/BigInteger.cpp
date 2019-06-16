@@ -97,36 +97,35 @@ BigInteger BigInteger::operator*(int num) {
 BigInteger BigInteger::operator/(int div) {
     BigInteger res;
     res.len = len;
-    int quo = 0; // 余数
+    int remain = 0; // 余数
     // 从高位开始除法
     for (int i = this->len - 1; i >= 0; i--) {
-        quo = quo * 10 + d[i];       // 加上 遗留的余数
-        if (quo < div)               // 该位不够除，商填0
+        remain = remain * 10 + d[i];       // 加上 遗留的余数
+        if (remain < div)               // 该位不够除，商填0
             res.d[i] = 0;
         else {                       // 够除
-            res.d[i] = quo / div;
-            quo %= div;
+            res.d[i] = remain / div;
+            remain %= div;
         }
     }
     res.removeLeadingZeros();        // 该步骤是必需的
     return res;
 }
 
-BigInteger div(BigInteger dividend, int divisor, int &quotient) {
-    BigInteger res;
+BigInteger div(BigInteger dividend, int divisor, int &remainder) {
+    BigInteger res; // 商
     res.len = dividend.len;
-    int quo = 0; // 余数
     // 从高位开始除法
     for (int i = dividend.len - 1; i >= 0; i--) {
-        quo = quo * 10 + dividend.d[i];  // 加上 遗留的余数
-        if (quo < divisor)               // 该位不够除，商填0
+        remainder = remainder * 10 + dividend.d[i];  // 加上 遗留的余数
+        if (remainder < divisor)                     // 该位不够除，商填0
             res.d[i] = 0;
-        else {                           // 够除
-            res.d[i] = quo / divisor;
-            quo %= divisor;
+        else {                                       // 该位够除
+            res.d[i] = remainder / divisor;
+            remainder %= divisor;
         }
     }
-    res.removeLeadingZeros();            // 该步骤是必需的
+    res.removeLeadingZeros();                        // 该步骤是必需的
     return res;
 }
 
@@ -142,6 +141,18 @@ int BigInteger::compare(const BigInteger &bigInteger) {
             return -1;
     }
     return 0; // 两数相等
+}
+
+BigInteger BigInteger::operator*(BigInteger bigInteger) {
+    BigInteger res("0");
+    for (int j = 0; j < bigInteger.len; j++) {
+        BigInteger mul = *this * bigInteger.d[j];
+        for (int k = 0; k < j; k++) {
+            mul = mul * 10;
+        }
+        res = res + mul;
+    }
+    return res;
 }
 
 BigInteger pow(int a, int n) {
@@ -169,13 +180,19 @@ ostream &operator<<(ostream &os, const BigInteger &bigInteger) {
 }
 
 int main() {
-    BigInteger bigInteger1("987654321");
-    BigInteger bigInteger2("123456789");
-    int int1 = 9999;
+    std::cin.tie(0);
+    std::ios::sync_with_stdio(false);
 
-    cout << bigInteger1 + bigInteger2 << endl;
-    cout << bigInteger1 - bigInteger2 << endl;
-    cout << bigInteger1 * int1 << endl;
-    cout << bigInteger1 / int1 << endl;
+    string str1, str2;
+    while (cin >> str1 >> str2) {
+        BigInteger bigInteger1(str1);
+        BigInteger bigInteger2(str2);
+        int int1 = 9999;
+        cout << bigInteger1 + bigInteger2 << endl;
+        cout << bigInteger1 - bigInteger2 << endl;
+        cout << bigInteger1 * int1 << endl;
+        cout << bigInteger1 * bigInteger2 << endl;
+        cout << bigInteger1 / int1 << endl;
+    }
     return 0;
 }
