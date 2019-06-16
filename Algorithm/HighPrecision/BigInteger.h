@@ -67,11 +67,11 @@ public:
 
     /**
      * 长整数除法
+     * 不返回余数
      * @param divisor 除数
-     * @param quotient 所得余数，以引用形式返回
      * @return 商
      */
-    BigInteger operator/(int divisor, int &quotient);
+    BigInteger operator/(int divisor);
 
     /**
      * 长整数比较
@@ -80,6 +80,16 @@ public:
      */
     int compare(const BigInteger &bigInteger);
 };
+
+/**
+ * 长整数除法
+ * 同时计算得到商和余数
+ * @param dividend 被除数
+ * @param divisor  除数
+ * @param quotient 所得余数，以引用形式返回
+ * @return 商
+ */
+BigInteger div(BigInteger dividend, int divisor, int &quotient);
 
 /**
  * 结果为长整数的指数运算

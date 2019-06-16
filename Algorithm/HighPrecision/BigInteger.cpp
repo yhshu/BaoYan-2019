@@ -94,11 +94,12 @@ BigInteger BigInteger::operator*(int num) {
     return res;
 }
 
-BigInteger BigInteger::operator/(int div, int &quo) {
+BigInteger BigInteger::operator/(int div) {
     BigInteger res;
     res.len = len;
+    int quo = 0; // 余数
     // 从高位开始除法
-    for (int i = this.len - 1; i >= 0; i--) {
+    for (int i = this->len - 1; i >= 0; i--) {
         quo = quo * 10 + d[i];       // 加上 遗留的余数
         if (quo < div)               // 该位不够除，商填0
             res.d[i] = 0;
@@ -111,9 +112,25 @@ BigInteger BigInteger::operator/(int div, int &quo) {
     return res;
 }
 
+BigInteger div(BigInteger dividend, int divisor, int &quotient) {
+    BigInteger res;
+    res.len = dividend.len;
+    int quo = 0; // 余数
+    // 从高位开始除法
+    for (int i = dividend.len - 1; i >= 0; i--) {
+        quo = quo * 10 + dividend.d[i];  // 加上 遗留的余数
+        if (quo < divisor)               // 该位不够除，商填0
+            res.d[i] = 0;
+        else {                           // 够除
+            res.d[i] = quo / divisor;
+            quo %= divisor;
+        }
+    }
+    res.removeLeadingZeros();            // 该步骤是必需的
+    return res;
+}
+
 int BigInteger::compare(const BigInteger &bigInteger) {
-    this->removeLeadingZeros();
-    bigInteger.removeLeadingZeros();
     if (len > bigInteger.len) return 1;
     if (len < bigInteger.len) return -1;
 
@@ -152,5 +169,13 @@ ostream &operator<<(ostream &os, const BigInteger &bigInteger) {
 }
 
 int main() {
+    BigInteger bigInteger1("987654321");
+    BigInteger bigInteger2("123456789");
+    int int1 = 9999;
+
+    cout << bigInteger1 + bigInteger2 << endl;
+    cout << bigInteger1 - bigInteger2 << endl;
+    cout << bigInteger1 * int1 << endl;
+    cout << bigInteger1 / int1 << endl;
     return 0;
 }
