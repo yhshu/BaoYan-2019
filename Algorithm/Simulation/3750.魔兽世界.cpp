@@ -220,6 +220,7 @@ Case:2
  */
 
 #include <cstdio>
+#include <cstdlib>
 #include <iostream>
 #include <vector>
 #include <sstream>
@@ -239,6 +240,14 @@ const string warriorTypeName[10] = {"dragon", "ninja", "iceman", "lion", "wolf"}
 const int CAMP_RED = 1;
 const int CAMP_BLUE = 0;
 
+string intToStr(int num) {
+    stringstream ss;
+    string res;
+    ss << num;
+    ss >> res;
+    return res;
+}
+
 class Warrior { // 武士
 public:
     int type;    // 武士类型
@@ -254,9 +263,11 @@ public:
             force(force), camp(camp), pos(pos) {}
 
     string toString() {
-        string res;
-        stringstream ss;
-        ss << (camp == CAMP_RED) ? "red" : "blue";
+        return ((camp == CAMP_RED) ? "red " : "blue ") + warriorTypeName[type] + " " + intToStr(no);
+    }
+
+    string status() {
+        return "with " + intToStr(element) + " elements and force " + intToStr(force);
     }
 };
 
@@ -324,15 +335,15 @@ void event00() {
                        warriorForce[redWarriorType], CAMP_RED, -1);
     warriors.push_back(redWarrior);
     outputCurTime();
-    cout << "red " << warriorTypeName[redWarriorType] << " " << headquarters[0].maxWarriorNo << " born" << endl;
+    cout << redWarrior.toString() << " born" << endl;
 
     // 蓝方武士
     int blueWarriorType = blueWarriorCreateSeq[addWarriorPointer % 5];
-    Warrior blueWarrior(blueWarriorType, ++headquarters[0].maxWarriorNo, warriorElement[blueWarriorType],
+    Warrior blueWarrior(blueWarriorType, ++headquarters[1].maxWarriorNo, warriorElement[blueWarriorType],
                         warriorForce[blueWarriorType], CAMP_BLUE, N);
     warriors.push_back(blueWarrior);
     outputCurTime();
-    cout << "blue " << warriorTypeName[blueWarriorType] << " " << headquarters[0].maxWarriorNo << " born" << endl;
+    cout << blueWarrior.toString() << " born" << endl;
 }
 
 /**
@@ -342,8 +353,26 @@ void event10() {
     for (int i = 0; i < warriors.size(); i++) {
         if (warriors[i].camp == CAMP_RED && warriors[i].pos < N) {
             warriors[i].pos++;
+            // 输出变化后的状态
+            outputCurTime();
+            if (warriors[i].pos < N) {
+                cout << warriors[i].toString() << " marched to city " << intToStr(warriors[i].pos) << " "
+                     << warriors[i].status() << endl;
+            } else {
+                cout << warriors[i].toString() << " reached blue headquarter " << intToStr(warriors[i].pos) << " "
+                     << warriors[i].status() << endl;
+            }
         } else if (warriors[i].camp == CAMP_BLUE && warriors[i].pos > -1) {
             warriors[i].pos--;
+            // 输出变化后的状态
+            outputCurTime();
+            if (warriors[i].pos >= 0) {
+                cout << warriors[i].toString() << " marched to city " << intToStr(warriors[i].pos) << " "
+                     << warriors[i].status() << endl;
+            } else {
+                cout << warriors[i].toString() << " reached red headquarter " << intToStr(warriors[i].pos) << " "
+                     << warriors[i].status() << endl;
+            }
         }
     }
 }
@@ -363,7 +392,7 @@ void event20() {
 void event30() {
     for (int i = 0; i < N; i++) {
         vector<Warrior *> w = warriorsInCity(i);
-        if (w.size() == 1) { // 该城市中只有一个武士
+        if (w.size() == 1) {                 // 该城市中只有一个武士
             headquarters[w[0]->camp].elementAmount += cities[i].elementAmount;
             cities[i].elementAmount = 0;     // 取走所有生命元
         }
