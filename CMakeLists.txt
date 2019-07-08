@@ -4,6 +4,7 @@ project(BaoYan)
 set(CMAKE_CXX_STANDARD 98) # C++ 98 should be used in algorithm examinations
 
 add_executable(simulation_1 Algorithm/Simulation/3750.魔兽世界.cpp)
+add_executable(simulation_2 Algorithm/Simulation/874. Walking Robot Simulation.cpp)
 add_executable(dp_2 Algorithm/DynamicProgramming/最优二叉搜索树.cpp)
 add_executable(dp_3 Algorithm/DynamicProgramming/1481.MaximumSum.cpp)
 add_executable(dp_4 Algorithm/DynamicProgramming/HDU1024.MaxSumPlusPlus.cpp)
@@ -58,7 +59,6 @@ add_executable(2018thu.se.1.1 Simulation/2018清华软院夏令营/1.回文数.c
 add_executable(2018thu.se.1.2 Simulation/2018清华软院夏令营/2.上凸函数.cpp)
 add_executable(2018thu.se.1.3 Simulation/2018清华软院夏令营/3.质因子.cpp)
 add_executable(2018thu.se.2.1_2 Simulation/2018清华软院九推/大整数运算.cpp)
-add_executable(2018thu.se.2.3 Simulation/2018清华软院九推/同构数.cpp)
 
 add_executable(2018thu.cs.a Simulation/2018清华计算机上机练习/A/思考熊的马拉松.cpp)
 
