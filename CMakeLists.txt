@@ -3,6 +3,9 @@ project(BaoYan)
 
 set(CMAKE_CXX_STANDARD 98) # C++ 98 should be used in algorithm examinations
 
+add_executable(CCF20181201 Simulation/CCF/201812/1.小明上学.cpp)
+add_executable(CCF20180303 Simulation/CCF/201803/3.URL映射.cpp)
+
 add_executable(simulation_1 Algorithm/Simulation/3750.魔兽世界.cpp)
 add_executable(simulation_2 Algorithm/Simulation/874.WalkingRobotSimulation.cpp)
 add_executable(dp_2 Algorithm/DynamicProgramming/最优二叉搜索树.cpp)
@@ -68,7 +71,7 @@ add_executable(2018pku.se.d Simulation/2018年北京大学软件工程学科夏�
 add_executable(2018pku.se.e Simulation/2018年北京大学软件工程学科夏令营上机练习/E.怪盗基德的滑翔翼［最长上升子序列］.cpp)
 add_executable(2018pku.se.g Simulation/2018年北京大学软件工程学科夏令营上机练习/G.实现堆结构.cpp)
 
-add_executable(2016pku.cs1.g Simulation/2016计算机学科夏令营上机考试/G.重建二叉树[已知前序中序求后序].cpp)
+add_executable(2016pku.cs1.g Simulation/2016计算机学科夏令营上机考试/G.重建二叉树[已知前序中序求后序].cpp Simulation/CCF/201812/1.小明上学.cpp Simulation/CCF/201803/3.URL映射.cpp)
 
 add_executable(2018pku.cs.a Simulation/2018北京大学计算机学科夏令营上机考试/A.计算两个日期之间的天数.cpp)
 add_executable(2018pku.cs.b Simulation/2018北京大学计算机学科夏令营上机考试/B.回文子串.cpp)
