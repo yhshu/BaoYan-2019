@@ -92,6 +92,7 @@ bool match(string &rule, string &request, int ctrl) {
     const int requestLen = request.size();
 
     int ruleIdx = 0, requestIdx = 0;
+
     while (ruleIdx < ruleLen && requestIdx < requestLen) {
         if (rule[ruleIdx] == request[requestIdx]) { // 字符相同
             ruleIdx++;
@@ -104,8 +105,8 @@ bool match(string &rule, string &request, int ctrl) {
 
             if (rule[ruleIdx] == 'i') {
                 // 匹配 <int>
-                bool leadingZero = true;
-                bool ok = false;
+                bool leadingZero = true;  // 是否是前导 0
+                bool ok = false;          // 是否匹配
                 while (request[requestIdx] && request[requestIdx] != '/' &&
                        isdigit(request[requestIdx]) && valid(request[requestIdx])) {
                     ok = true;
@@ -114,14 +115,19 @@ bool match(string &rule, string &request, int ctrl) {
                     if (request[requestIdx] != '0')
                         leadingZero = false;  // 已不是前导 0
 
-                    if (ctrl == 1 && !leadingZero) {
+                    if (ctrl == 1 && !leadingZero) {  // 输出非前导 0 的情况
                         cout << request[requestIdx];
                     }
+
+                    requestIdx++;
+                }
+                if (ok && leadingZero) {  // 参数是全 0 时，只输出一位 0
+                    if (ctrl == 1)
+                        cout << '0';
+                    return true;
                 }
                 if (leadingZero)
                     return false;
-                if (ok)  // 但 leadingZero 是 true，意味着参数是一位 0，它不是前导 0
-                    cout << '0';
 
                 ruleIdx += 4;            // 跳过 "<int>"
 
@@ -151,16 +157,22 @@ bool match(string &rule, string &request, int ctrl) {
             }
         }
     }
+
+    return requestIdx == requestLen && ruleIdx == ruleLen;
 }
 
 void server() {
     for (int i = 0; i < m; i++) {     // 逐条处理请求
         cin >> request;
+//        cout << "[DEBUG] request: " << request << endl;
         bool found = false;           // 是否已找到资源
         for (int j = 0; j < n; j++) { // 逐条对比规则
-            if (found)
+            if (found) {
+//                cout << "[DEBUG] the rule has been found" << endl;
                 break;
+            }
             if (match(rule[j], request, 0)) {
+//                cout << "[DEBUG] the rule has been matched" << endl;
                 found = true;         // 找到匹配的规则
                 cout << resource[j];  // 输出资源名
                 match(rule[j], request, 1); // 输出参数
