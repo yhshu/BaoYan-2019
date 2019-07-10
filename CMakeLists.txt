@@ -5,6 +5,7 @@ set(CMAKE_CXX_STANDARD 98) # C++ 98 should be used in algorithm examinations
 
 add_executable(CCF20181201 Simulation/CCF/201812/1.小明上学.cpp)
 add_executable(CCF20180303 Simulation/CCF/201803/3.URL映射.cpp)
+add_executable(CCF20180302 Simulation/CCF/201803/2.碰撞的小球.cpp)
 
 add_executable(simulation_1 Algorithm/Simulation/3750.魔兽世界.cpp)
 add_executable(simulation_2 Algorithm/Simulation/874.WalkingRobotSimulation.cpp)
