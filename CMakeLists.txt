@@ -84,3 +84,5 @@ add_executable(2018pku.cs.g "Simulation/2018北京大学计算机学科夏令营
 add_executable(2019pku.kaoyan.a Simulation/2019信科研究生上机测试/A.护林员盖房子.cpp)
 
 add_executable(2018pku.tuimian.b "Simulation/2018研究生推免上机考试/B.简单密码.cpp")
+
+add_executable(2018nju.cs.2 Simulation/2018南京大学计算机系夏令营/2.MissingNumbers.cpp)
