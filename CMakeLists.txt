@@ -87,3 +87,10 @@ add_executable(2019pku.kaoyan.a Simulation/2019信科研究生上机测试/A.护
 add_executable(2018pku.tuimian.b "Simulation/2018研究生推免上机考试/B.简单密码.cpp")
 
 add_executable(2018nju.cs.2 Simulation/2018南京大学计算机系夏令营/2.MissingNumbers.cpp)
+
+add_executable(pat1001 Simulation/PAT甲级/1001.A+BFormat.cpp)
+add_executable(pat1003 Simulation/PAT甲级/1003.Emergency.cpp)
+add_executable(pat1004 Simulation/PAT甲级/1004.CountingLeaves.cpp)
+add_executable(pat1013 Simulation/PAT甲级/1013.BattleOverCities.cpp)
+add_executable(pat1048 Simulation/PAT甲级/1048.FindCoins.cpp)
+add_executable(pat1012 Simulation/PAT甲级/1012.TheBestBank.cpp)
