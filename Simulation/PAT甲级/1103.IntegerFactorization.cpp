@@ -20,29 +20,28 @@ Sample Output 2:
 Impossible
  */
 
+
+// 本题考察 DFS + 剪枝
+
+// 递归过程中主要的剪枝策略：
+// 1. 幂次和是否已经超过 n
+// 2. 每一层递归搜索的开始位置根据已填入的数字进行调整
+// 3. 估计剩余的尚未填入的数字，最大能否超过已记录的最大因子和
+
 #include <iostream>
 #include <cmath>
-#include <vector>
 #include <map>
+
+#define maxn 410
 
 using namespace std;
 
 int n, k, p;
 int maxSum; // 各因子之和
 int maxFactor;
-vector<int> ans;
+int ans[maxn];
 bool solved = false;
 map<int, int> powers;
-
-void input() {
-    cin >> n >> k >> p;
-
-    // 用于递归剪枝
-    maxFactor = 1;
-    while (pow(maxFactor, p) <= (double) n) {
-        maxFactor++;
-    }
-}
 
 int calcPower(int num) {
     if (powers.find(num) == powers.end()) {
@@ -51,6 +50,17 @@ int calcPower(int num) {
     return powers[num];
 }
 
+void input() {
+    cin >> n >> k >> p;
+
+    // 用于递归剪枝
+    maxFactor = 1;
+    while (calcPower(maxFactor) <= (double) n) {
+        maxFactor++;
+    }
+}
+
+
 /**
  * 搜索
  * @param pos 搜索位置
@@ -58,26 +68,28 @@ int calcPower(int num) {
  * @param factorSum 因子和
  * @param sol 解向量
  */
-void dfs(int pos, int powerSum, int factorSum, vector<int> sol, int maxF) {
-    if (powerSum > n)
-        return;
+void dfs(int pos, int powerSum, int factorSum, int *sol, int maxF) {
+    if (n - powerSum < 0) return;
     if (pos == k) {
         if (powerSum == n && factorSum > maxSum) {
             maxSum = factorSum;
-            ans.assign(sol.begin(), sol.end());
+            for (int i = 0; i < k; i++) ans[i] = sol[i];
             solved = true;
         }
         return;
     }
     int remainN;
-    int tempMaxFactor;
+    int tempMaxF;
     for (int i = maxF; i >= 1; i--) {
-        sol.push_back(i);
-
-        tempMaxFactor = 1;
-
-        dfs(pos + 1, powerSum + calcPower(i), factorSum + i, sol, maxF);
-        sol.pop_back();
+        sol[pos] = i;
+        remainN = n - powerSum - calcPower(i);
+        if (remainN >= 0 && factorSum + (k - pos) * i > maxSum) {
+            tempMaxF = 1;
+            while (pow(tempMaxF, p) <= remainN) tempMaxF++;
+            tempMaxF = min(tempMaxF - 1, i);
+            dfs(pos + 1, powerSum + calcPower(i), factorSum + i, sol, tempMaxF);
+        }
+        sol[pos] = 0;
     }
 }
 
@@ -88,15 +100,17 @@ void output() {
     }
 
     cout << n << " = ";
-    for (int i = 0; i < ans.size(); i++) {
+    for (int i = 0; i < k; i++) {
         if (i) cout << " + ";
         cout << ans[i] << "^" << p;
     }
 }
 
 int main() {
+    std::ios::sync_with_stdio(false);
+    std::cin.tie(0);
     input();
-    vector<int> sol;
+    int *sol = new int[k + 5];
     dfs(0, 0, 0, sol, maxFactor);
     output();
     return 0;
