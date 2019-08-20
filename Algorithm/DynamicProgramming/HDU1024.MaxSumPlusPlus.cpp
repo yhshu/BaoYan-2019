@@ -14,7 +14,7 @@ Now given an integer m (m > 0), your task is to find m pairs of i and j which ma
 But I`m lazy, I don't want to write a special-judge module, so you don't have to output m pairs of i and j, just output the maximal summation of sum(i x, j x)(1 ≤ x ≤ m) instead. ^_^
 Input
 Each test case will begin with two integers m and n, followed by n integers S 1, S 2, S 3 ... S n.
-Process to the end of file.
+Process to the len of file.
 Output
 Output the maximal summation described above in one line.
 Sample Input

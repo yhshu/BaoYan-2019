@@ -83,7 +83,7 @@ int main() {
         for (int i = 0; i < nums.size() - 1; i++) {
             cout << nums[i] << " ";
         }
-        cout << nums[nums.size() - 1] << endl;  // no space in the end of this line
+        cout << nums[nums.size() - 1] << endl;  // no space in the len of this line
         nums.clear();
         vis.clear();
     }

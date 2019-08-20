@@ -71,10 +71,10 @@ int main() {
             nums.push_back(num);
         }
 
-        int ans1 = lis(nums);
+        int ans1 = ans2(nums);
         reverse(nums.begin(), nums.end());
         fill_n(dp, sizeof(dp), 1);
-        int ans2 = lis(nums);
+        int ans2 = ans2(nums);
 
         cout << max(ans1, ans2) << endl;
     }
