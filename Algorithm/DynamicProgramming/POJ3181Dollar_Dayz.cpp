@@ -1,5 +1,5 @@
 //
-// Created by syh on 19-3-27.
+// Created by Yiheng Shu on 19-3-27.
 //
 
 // 本题是简单的完全背包问题
