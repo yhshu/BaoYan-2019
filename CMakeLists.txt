@@ -108,3 +108,4 @@ add_executable(luogu.p1616 洛谷/动态规划的背包问题/P1616疯狂的采�
 add_executable(luogu.p1020 洛谷/线性动态规划/P1020导弹拦截.cpp)
 add_executable(luogu.p1091 洛谷/线性动态规划/P1091合唱队形.cpp)
 add_executable(luogu.p1280 洛谷/线性动态规划/P1280尼克的任务.cpp)
+add_executable(luogu.p1880 洛谷/线性动态规划/P1880石子合并.cpp)
