@@ -97,6 +97,8 @@ add_executable(pat1012 PAT甲级/1012.TheBestBank.cpp)
 add_executable(pat1103 PAT甲级/1103.IntegerFactorization.cpp)
 add_executable(pat1007 PAT甲级/1007.MaximumSubsequenceSum.cpp)
 add_executable(pat1022 PAT甲级/1022.DigitalLibrary.cpp)
+add_executable(pat1002 PAT甲级/1002.A+BforPolynomials.cpp)
+add_executable(pat1005 PAT甲级/1005.SpellItRight.cpp)
 
 add_executable(luogu.p1339 洛谷/最短路问题/P1339[USACO09OCT]热浪HeatWave.cpp)
 add_executable(luogu.p1060 洛谷/动态规划的背包问题/P1060开心的金明.cpp)
