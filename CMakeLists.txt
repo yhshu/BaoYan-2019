@@ -115,6 +115,8 @@ add_executable(pat1026 PAT甲级/1026.TableTennis.cpp)
 add_executable(pat1027 PAT甲级/1027.ColorsinMars.cpp)
 add_executable(pat1028 PAT甲级/1028.ListSorting.cpp)
 add_executable(pat1029 PAT甲级/1029.Median.cpp)
+add_executable(pat1030 PAT甲级/1030.TravelPlan.cpp)
+add_executable(pat1031 PAT甲级/1031.HelloWorldForU.cpp)
 add_executable(pat1048 PAT甲级/1048.FindCoins.cpp)
 add_executable(pat1103 PAT甲级/1103.IntegerFactorization.cpp)
 
