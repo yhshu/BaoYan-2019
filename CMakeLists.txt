@@ -118,6 +118,7 @@ add_executable(pat1029 PAT甲级/1029.Median.cpp)
 add_executable(pat1030 PAT甲级/1030.TravelPlan.cpp)
 add_executable(pat1031 PAT甲级/1031.HelloWorldForU.cpp)
 add_executable(pat1032 PAT甲级/1032.Sharing.cpp)
+add_executable(pat1033 PAT甲级/1033.ToFillorNottoFill.cpp)
 add_executable(pat1048 PAT甲级/1048.FindCoins.cpp)
 add_executable(pat1103 PAT甲级/1103.IntegerFactorization.cpp)
 
