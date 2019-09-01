@@ -125,6 +125,7 @@ add_executable(pat1103 PAT甲级/1103.IntegerFactorization.cpp)
 add_executable(pat1152 PAT甲级/1152.GoogleRecruitment.cpp)
 add_executable(pat1153 PAT甲级/1153.DecodeRegistrationCardofPAT.cpp)
 add_executable(pat1154 PAT甲级/1154.VertexColoring.cpp)
+add_executable(pat1155 PAT甲级/1155.HeapPaths.cpp)
 
 add_executable(luogu.p1339 洛谷/最短路问题/P1339[USACO09OCT]热浪HeatWave.cpp)
 add_executable(luogu.p1060 洛谷/动态规划的背包问题/P1060开心的金明.cpp)
