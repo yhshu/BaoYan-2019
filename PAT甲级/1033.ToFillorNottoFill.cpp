@@ -28,7 +28,7 @@ int main() {
     }
 
     st[n].dis = D;          // 虚拟终点为最后一站
-    st[n].price = 0;        // 最后一站无需价格
+    st[n].price = 0;        // 最后一站无需总花费价格
     sort(st, st + n, disCmp);
     if (st[0].dis != 0) {
         printf("The maximum travel distance = 0.00\n");
@@ -36,7 +36,7 @@ int main() {
     }
 
     int curSt = 0;               // 当前的加油站
-    double cost = 0;             // 总花费
+    double cost = 0;             //
     double curTank = 0;          // 当前油箱余量
     double maxDis = Cmax * Davg; // 最大行驶距离
 
