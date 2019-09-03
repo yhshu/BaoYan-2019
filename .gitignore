@@ -1,6 +1,7 @@
 # CLion 工程文件
 .idea/
 cmake-build-debug/
+/.vs/
 
 # Prerequisites
 *.d
