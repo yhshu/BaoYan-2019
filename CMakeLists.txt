@@ -89,6 +89,7 @@ add_executable(2018pku.tuimian.b "Simulation/2018研究生推免上机考试/B.�
 add_executable(2018nju.cs.2 Simulation/2018南京大学计算机系夏令营/2.MissingNumbers.cpp)
 
 add_executable(luogu.p1339 洛谷/最短路问题/P1339[USACO09OCT]热浪HeatWave.cpp)
+add_executable(luogu.p1462 洛谷/最短路问题/P1346电车.cpp)
 add_executable(luogu.p1060 洛谷/动态规划的背包问题/P1060开心的金明.cpp)
 add_executable(luogu.p1164 洛谷/动态规划的背包问题/P1164小A点菜.cpp)
 add_executable(luogu.p1064 洛谷/动态规划的背包问题/P1064金明的预算方案.cpp)

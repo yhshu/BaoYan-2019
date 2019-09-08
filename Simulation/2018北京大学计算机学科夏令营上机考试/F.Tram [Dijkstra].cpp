@@ -58,6 +58,7 @@ struct cmp {
 
 int n, a, b;   // 顶点数量，起点，终点
 vector<Edge> nei[maxn]; // 邻接表
+bool vis[maxn];
 
 priority_queue<int, vector<int>, cmp> que; // 堆优化
 
@@ -74,6 +75,9 @@ void Dijkstra() {
     while (!que.empty()) {
         int cur = que.top();
         que.pop();
+
+        if (vis[cur]) continue;
+        vis[cur] = true;
 
         for (int i = 0; i < nei[cur].size(); i++) {
             Edge e = nei[cur][i];

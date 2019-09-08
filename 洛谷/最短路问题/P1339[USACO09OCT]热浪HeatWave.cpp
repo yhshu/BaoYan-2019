@@ -31,6 +31,7 @@ const int inf = 0x3f3f3f3f;
 int T, C, Ts, Te; // 顶点数，边数，起点，终点
 vector<Edge> graph[maxn];
 priority_queue<int, vector<int>, cmp> pq;
+bool vis[maxn];
 
 void input() {
     std::ios::sync_with_stdio(false);
@@ -52,6 +53,9 @@ void Dijkstra() {
     while (!pq.empty()) {
         int cur = pq.top();
         pq.pop();
+
+        if (vis[cur])continue;
+        vis[cur] = true;
 
         for (int i = 0; i < graph[cur].size(); i++) {
             Edge nei = graph[cur][i];
