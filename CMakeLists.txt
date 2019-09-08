@@ -104,6 +104,7 @@ add_executable(luogu.p1104 洛谷/线性动态规划/P1104相似基因.cpp)
 add_executable(luogu.p1192 洛谷/递推与递归二分/P1192台阶问题.cpp)
 add_executable(luogu.p1025 洛谷/递推与递归二分/P1025数的二分.cpp)
 add_executable(luogu.p1057 洛谷/递推与递归二分/P1057传球游戏.cpp)
+add_executable(luogu.p1135 洛谷/递推与递归二分/P1135奇怪的电梯.cpp)
 
 
 set(CMAKE_CXX_STANDARD 11)  # C++ 11 is allowed in PAT
