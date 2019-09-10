@@ -105,6 +105,13 @@ add_executable(luogu.p1192 洛谷/递推与递归二分/P1192台阶问题.cpp)
 add_executable(luogu.p1025 洛谷/递推与递归二分/P1025数的二分.cpp)
 add_executable(luogu.p1057 洛谷/递推与递归二分/P1057传球游戏.cpp)
 add_executable(luogu.p1135 洛谷/递推与递归二分/P1135奇怪的电梯.cpp)
+add_executable(luogu.p3366 洛谷/普及常见模板/P3366.最小生成树.cpp)
+add_executable(luogu.p3367 洛谷/普及常见模板/P3367.并查集.cpp)
+add_executable(luogu.p4779 洛谷/普及常见模板/P4779.单源最短路径标准版.cpp)
+add_executable(luogu.p3371 洛谷/普及常见模板/P3371.单源最短路径弱化版.cpp)
+add_executable(luogu.p3383 洛谷/普及常见模板/P3383.线性筛素数.cpp)
+add_executable(luogu.p1478 洛谷/普及综合练习/P1478.陶陶摘苹果升级版.cpp)
+add_executable(luogu.p1363 洛谷/普及综合练习/P1363.幻象迷宫.cpp)
 
 
 set(CMAKE_CXX_STANDARD 11)  # C++ 11 is allowed in PAT
