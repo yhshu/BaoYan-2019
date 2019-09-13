@@ -52,7 +52,6 @@ void solve() {
             dp2[pos] = nums[i];
         }
     }
-
 }
 
 void output() {

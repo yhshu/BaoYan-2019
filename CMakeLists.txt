@@ -112,6 +112,11 @@ add_executable(luogu.p3371 洛谷/普及常见模板/P3371.单源最短路径弱
 add_executable(luogu.p3383 洛谷/普及常见模板/P3383.线性筛素数.cpp)
 add_executable(luogu.p1478 洛谷/普及综合练习/P1478.陶陶摘苹果升级版.cpp)
 add_executable(luogu.p1363 洛谷/普及综合练习/P1363.幻象迷宫.cpp)
+add_executable(luogu.p1601 洛谷/高精度算法/P1601.A+BProblem高精.cpp)
+add_executable(luogu.p1604 洛谷/高精度算法/P1604.B进制星球.cpp)
+add_executable(luogu.p1108 洛谷/普及综合练习/P1108.低价购买.cpp)
+add_executable(luogu.p1059 洛谷/排序/P1059.明明的随机数.cpp)
+add_executable(luogu.p1219 洛谷/深度优先搜索/P1219.八皇后.cpp)
 
 
 set(CMAKE_CXX_STANDARD 11)  # C++ 11 is allowed in PAT
