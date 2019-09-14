@@ -117,7 +117,11 @@ add_executable(luogu.p1604 洛谷/高精度算法/P1604.B进制星球.cpp)
 add_executable(luogu.p1108 洛谷/普及综合练习/P1108.低价购买.cpp)
 add_executable(luogu.p1059 洛谷/排序/P1059.明明的随机数.cpp)
 add_executable(luogu.p1219 洛谷/深度优先搜索/P1219.八皇后.cpp)
-
+add_executable(luogu.p1101 洛谷/深度优先搜索/P1101.单词方阵.cpp)
+add_executable(luogu.p1605 洛谷/深度优先搜索/P1605.迷宫.cpp)
+add_executable(luogu.p1144 洛谷/最短路问题/P1144.最短路计数.cpp)
+add_executable(luogu.p1031 洛谷/交叉模拟/P1031.均分纸牌.cpp)
+add_executable(luogu.p1449 洛谷/线性数据结构/P1449.后缀表达式.cpp)
 
 set(CMAKE_CXX_STANDARD 11)  # C++ 11 is allowed in PAT
 
